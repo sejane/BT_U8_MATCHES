@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -62,6 +62,15 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
 .match-report-native{margin-top:8px;padding:11px 12px;background:#f7f9fb;border-left:3px solid var(--accent);border-radius:8px;line-height:1.65;font-size:13px;max-width:430px}
 .replay-row{margin-top:7px}
 
+
+.reserve-section{margin-top:20px}
+.reserve-section h2{font-size:17px;margin:0 0 10px}
+.reserve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.reserve-card{background:#fff;border:1px dashed #c9d3dc;border-radius:12px;padding:12px}
+.reserve-card b{display:block;font-size:14px;margin-bottom:5px}
+.reserve-card span{font-size:11px;font-weight:800;color:var(--pending);background:#fff6dc;padding:3px 7px;border-radius:999px}
+@media(max-width:760px){.reserve-grid{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
@@ -78,7 +87,7 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
 </div></header>
 
 <main>
-  <div class="notice">集合時間為開賽前一小時!球衣依公告穿著(另一套攜帶備用)。感謝楷禾爸的錄影及上傳</div>
+  <div class="notice">比數、積分、文字轉播與錄影回放目前沒有可靠公開資料，因此先以「待補」呈現，不臆測結果。HTML 已預留連結欄位，取得網址後可直接替換。</div>
   <span id="all" class="filter-anchor"></span>
   <span id="xinzhuang" class="filter-anchor"></span>
   <span id="vw" class="filter-anchor"></span>
@@ -88,14 +97,13 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
     <a class="filter" href="#vw">福斯球場</a>
   </div>
   <div class="venue-summary">
-    <div class="venue-card"><b>新莊體育場</b><span>09/13、09/19、09/20、10/18、11/08</span></div>
-    <div class="venue-card"><b>福斯球場</b><span>10/04、10/25、11/08、11/15、11/22</span></div>
+    <div class="venue-card"><b>新莊體育場｜新北八人制</b><span>09/13、09/19、09/20、10/18、11/08</span></div>
+    <div class="venue-card"><b>福斯球場｜全國勝利聯賽</b><span>10/04、10/25、11/08、11/15、11/22、12/06（預留）、12/13（預留）、2027/01/10（預留）、01/17（預留）、01/24（預留）、02/14（預留）、02/21（預留）、03/07（預留）</span></div>
   </div>
-
   <table id="schedule">
     <thead><tr><th>日期 / 場地</th><th>比賽時間</th><th>集合時間</th><th>場地</th><th>對手</th><th>球衣</th><th>比數</th><th>積分</th><th>賽事內容</th></tr></thead>
     <tbody>
-      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/13（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">08:40</td><td data-label="集合時間"><strong>07:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">LS紅獅</span></td><td data-label="球衣"><strong>穿紅</strong><div class="venue">帶藍</div></td><td data-label="比數">
+      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/13（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">08:40</td><td data-label="集合時間"><strong>07:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">LS紅獅</span></td><td data-label="球衣"><strong>穿藍</strong><div class="venue">帶紅</div></td><td data-label="比數">
       <div class="score-card">
         <span>BT</span><strong>1：5</strong><span>LS</span>
         <small>終場</small>
@@ -106,7 +114,7 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
     <div class="match-report-native">
       <strong>09/13 戰況</strong><br>
       上半場 1：1 僵持。<br>
-      下半場氣力放盡，儘管守門員楷洋撲救多球，但防守多次錯位、回防不及，導致對手一次傳導就有單刀機會。(亮言爸)<br>
+      下半場氣力放盡，儘管守門員楷洋撲救多球，但防守多次錯位、回防不及，導致對手一次傳導就有單刀機會。<br>
       <strong>終場：BT SPIRIT 風速羊 1：5 LS紅獅</strong>
     </div>
   </details>
@@ -115,18 +123,33 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
     <a class="btn replay" href="https://youtu.be/ODF90vCrRTU?si=Q2NwItZ0X0hwsxRA" target="_blank" rel="noopener">錄影②</a>
   </div>
 </td></tr>
-      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/19（六）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">13:40</td><td data-label="集合時間"><strong>12:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">Taipei Playone</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
+      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/19（六）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">13:40</td><td data-label="集合時間"><strong>12:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">Taipei Playone</span></td><td data-label="球衣"><strong>穿藍帶紅</strong></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/20（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">12:50</td><td data-label="集合時間"><strong>11:50</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">樂活龍</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">10/04（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">08:00</td><td data-label="集合時間"><strong>07:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">MFA U8</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">10/18（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">10:20</td><td data-label="集合時間"><strong>09:20</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">銀河射手俱樂部</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">10/25（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">13:00</td><td data-label="集合時間"><strong>12:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">Falcons United</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
-      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">11/08（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">07:50</td><td data-label="集合時間"><strong>06:50</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">新北銀河</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
-      <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">11/08（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">09:00</td><td data-label="集合時間"><strong>08:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">MFA U7</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
+      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">11/08（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">07:50</td><td data-label="集合時間"><strong>06:50</strong><div class="venue">待確認</div></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">新北銀河</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
+      <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">11/08（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">09:00</td><td data-label="集合時間"><strong>08:00</strong><div class="venue">待確認</div></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">MFA U7</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">11/15（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">12:00</td><td data-label="集合時間"><strong>11:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">MONSTER 足球俱樂部 U8</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">11/22（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">17:00</td><td data-label="集合時間"><strong>16:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">LION-U8</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
     </tbody>
   </table>
-  <div class="foot">※ 12/06 福斯球場目前僅有 U8D1～U8D6 代碼，尚未能確認風速羊場次，因此未列入確定賽程。9/13 比數已依提供資料更新；積分暫按足球常見制度（敗=0）呈現，最終仍以各賽事主辦單位規則與公告為準。</div>
+
+  <section class="reserve-section">
+    <h2>預留賽程｜全國勝利聯賽</h2>
+    <div class="reserve-grid">
+      <div class="reserve-card"><b>2026/12/06（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2026/12/13（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/01/10（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/01/17（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/01/24（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/02/14（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/02/21（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+      <div class="reserve-card"><b>2027/03/07（日）</b><div class="venue">福斯球場</div><span>預留</span></div>
+    </div>
+  </section>
+
+  <div class="foot">※ 場地依最新資訊更新：新北八人制＝新莊體育場；全國勝利聯賽＝福斯球場。11/08 兩場集合時間目前標示「待確認」。12/06 起的全國勝利聯賽日期為預留日，場地為福斯球場；開賽時間與對手尚待公告。9/13 比數已依提供資料更新；積分最終仍以各賽事主辦單位規則與公告為準。</div>
 </main>
 
 </body></html>
