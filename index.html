@@ -80,14 +80,14 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
   <div class="sub">賽程・比數・積分・文字轉播・錄影回放</div>
   <div class="stats">
     <div class="stat"><b>10</b><span>已確認賽程</span></div>
-    <div class="stat"><b>09/19</b><span>即將開賽</span></div>
-    <div class="stat"><b id="played">1</b><span>已到比賽日</span></div>
-    <div class="stat"><b>0</b><span>目前已知積分</span></div>
+    <div class="stat"><b>09/20</b><span>即將開賽</span></div>
+    <div class="stat"><b id="played">2</b><span>已到比賽日</span></div>
+    <div class="stat"><b>3</b><span>目前已知積分</span></div>
   </div>
 </div></header>
 
 <main>
-  <div class="notice">比數、積分、文字轉播與錄影回放目前沒有可靠公開資料，因此先以「待補」呈現，不臆測結果。HTML 已預留連結欄位，取得網址後可直接替換。</div>
+  <div class="notice"><strong>📌注意事項</strong><br>🪪證件檢錄/必備<br>👉健保卡＋學生證或護照<br>👉證件需附有清晰頭像（不得使用嬰兒照）<br>⚠️證件不齊者將無法參賽<br><br><strong>🧳個人物品/提醒</strong><br>👉自備水壺、毛巾、球<br>👉替換衣物、備用口罩<br>👉指甲請提前修剪<br>👉禁止配戴金屬飾品（如耳環、項鍊、戒指）<br><br><strong>💰比賽費用</strong><br>👉教練指導費：每人每場NT$150 元<br>👉請統一由愛心媽媽（昕桓媽） 收齊後轉交給現場教練</div>
   <span id="all" class="filter-anchor"></span>
   <span id="xinzhuang" class="filter-anchor"></span>
   <span id="vw" class="filter-anchor"></span>
@@ -97,7 +97,7 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
     <a class="filter" href="#vw">福斯球場</a>
   </div>
   <div class="venue-summary">
-    <div class="venue-card"><b>新莊體育場｜新北八人制</b><span>09/13、09/19、09/20、10/18、11/08</span></div>
+    <div class="venue-card"><b>新莊體育場｜新北兒少草地五人制</b><span>09/13、09/19、09/20、10/18、11/08</span></div>
     <div class="venue-card"><b>福斯球場｜全國勝利聯賽</b><span>10/04、10/25、11/08、11/15、11/22、12/06（預留）、12/13（預留）、2027/01/10（預留）、01/17（預留）、01/24（預留）、02/14（預留）、02/21（預留）、03/07（預留）</span></div>
   </div>
   <table id="schedule">
@@ -118,8 +118,15 @@ a.btn.replay{background:#263847} a.btn.disabled{background:#d9dfe5;color:#7d8790
     <a class="btn replay" href="https://youtu.be/ODF90vCrRTU?si=Q2NwItZ0X0hwsxRA" target="_blank" rel="noopener">錄影②</a>
   </div>
 </td></tr>
-      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/19（六）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">13:40</td><td data-label="集合時間"><strong>12:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">Taipei Playone</span></td><td data-label="球衣"><strong>穿藍帶紅</strong></td><td data-label="比數"><div class="score-card"><strong>BT 6：2 TP</strong><span>終場</span></div></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
-      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/20（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">12:50</td><td data-label="集合時間"><strong>11:50</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">樂活龍</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
+      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/19（六）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">13:40</td><td data-label="集合時間"><strong>12:40</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">Taipei Playone</span></td><td data-label="球衣"><strong>穿藍帶紅</strong></td><td data-label="比數"><div class="score-card"><strong>BT 6：2 TP</strong><span>終場</span></div></td><td data-label="積分" class="points">—</td><td data-label="賽事內容">
+  <details class="report-details">
+    <summary>文字轉播</summary><div class="report">今天比賽的對手<br>Taipei Playone<br>是上個賽季U8第一級的最後一名<br><br>本賽季前一場對上銀河射手<br>以0：7落敗<br>預計實力應在伯仲之間<br><br>賽前練習爸爸們看到<br>對方14號體型跟豐麟差不多<br>擔心會整場把我們撞得東倒西歪<br><br>上半場開始前十分鐘<br>難得本隊核彈頭宥勝燃料充足<br>率先起腳勁射首開紀錄<br><br>接著楷禾也不甘示弱<br>硬是在守門員跟門柱找到空檔<br>射進本場第二分<br><br>結果後十分鐘<br>退防不及的老毛病又發作了<br>幾次邊線帶球單刀被截<br><br>只剩下宥陞回防<br>其餘都在散步看戲<br>導致在中場前被追平<br><br>泓泓教練太陽穴旁的青筋<br>感覺都快爆裂了<br>幸好當下還能夠呼吸<br><br>經過中場的戰術指示跟<br>精(恐)神(嚇)喊(威)話(脅)<br>下半場即將要開始囉<br><br>楷禾受到上半場進球的鼓舞<br>眼睛從瞇成一條線<br>變成一雙銅鈴般的大眼<br><br>整個球場都成為他的Zone<br>屢屢接獲傳球盤球過人<br>連續包辦下半場的三分<br><br>這時為了中線的傳輸防守<br>悶了整場有氣無力的宸叡<br>終於在結束前追加一分<br><br>另外宥陞還有一球在禁區內<br>接獲隊友傳球直接起腳抽射<br>可惜打到守門員未能破網<br><br>宥陞稱職扮演後場防守角色<br>並多次向兩側鋒線傳導<br>也會趁機單刀直入破壞對手陣型<br><br>楷洋守門員也屢屢撲救<br>在門前多次化險為夷<br>成為的場上隊友們的定海神針<br><br>最終比數6：2<br>BT風速羊獲得本賽季首勝<br><br>明天將出戰樂活龍<br>是上賽季的同組對手<br>前次交手2：2平手<br><br>經過這段時間各自的鍛鍊<br>會碰撞出怎麼樣的火花呢？<br>明天就會知道答案了！</div></details>
+  <div class="actions replay-row">
+    <a class="btn replay" href="https://youtu.be/bc0IuWp8tVI?si=3VT_fCnliNystYeo" target="_blank" rel="noopener">錄影①</a>
+    <a class="btn replay" href="https://youtu.be/ODF90vCrRTU?si=zuVrcmOChenpj7JN" target="_blank" rel="noopener">錄影②</a>
+  </div>
+</td></tr>
+      <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">09/20（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">12:50</td><td data-label="集合時間"><strong>11:50</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">樂活龍</span></td><td data-label="球衣"><strong>紅色</strong></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">10/04（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">08:00</td><td data-label="集合時間"><strong>07:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">MFA U8</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match xinzhuang" data-venue="新莊體育場"><td data-label="日期 / 場地"><div class="date">10/18（日）</div><div class="venue">新莊體育場</div></td><td data-label="比賽時間">10:20</td><td data-label="集合時間"><strong>09:20</strong></td><td data-label="場地"><span class="badge">新莊體育場</span></td><td data-label="對手"><span class="opp">銀河射手俱樂部</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
       <tr class="match vw" data-venue="福斯球場"><td data-label="日期 / 場地"><div class="date">10/25（日）</div><div class="venue">福斯球場</div></td><td data-label="比賽時間">13:00</td><td data-label="集合時間"><strong>12:00</strong></td><td data-label="場地"><span class="badge">福斯球場</span></td><td data-label="對手"><span class="opp">Falcons United</span></td><td data-label="球衣"><span class="pending">待補</span></td><td data-label="比數"><span class="pending">未開賽</span></td><td data-label="積分" class="points">—</td><td data-label="賽事內容"><div class="actions"><a class="btn disabled">文字轉播</a><a class="btn replay disabled">錄影回放</a></div></td></tr>
