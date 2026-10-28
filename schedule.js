@@ -29,7 +29,8 @@ const newTaipeiScores = {
 };
 // Enter confirmed results as [BT SPIRIT goals, opponent goals].
 const victoryScores = {
-  '10-04': [3,1]
+  '10-04': [3,1],
+  '10-25': [13,0]
 };
 function renderNewTaipeiRecord() {
   const scores = Object.values(newTaipeiScores);
