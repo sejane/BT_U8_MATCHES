@@ -4,6 +4,7 @@ const matches = [
   ['09-20','12:50','11:50','樂活龍',0,'50','乙B','紅色'],
   ['10-18','10:20','09:20','銀河射手俱樂部',0,'69','乙A'],
   ['11-08','07:50','06:50','新北銀河',0,'135','乙A','穿紅、帶藍'],
+  ['11-21','12:50','11:50','熱血閃電紅',0,null,'乙A'],
   ['10-04','08:00','07:00','MFA U8',1,null,null,'穿藍、帶紅'],
   ['10-25','13:00','12:00','FALCONS UNITED',1,null,null,'球員：紅色／守門員：藍色'],
   ['11-22','17:00','16:00','LION',1],
@@ -80,7 +81,7 @@ function refreshSchedule() {
   const league = next.league ? '2026/27 勝利聯賽 · U8 A 組' : '新北市兒少草地五人制足球聯賽 · U8';
   const venue = next.league
     ? '福斯球場'
-    : `新莊田徑場人工草皮足球場${next.field ? ` · ${next.field} · 場次 ${next.round}` : ''}`;
+    : `新莊田徑場人工草皮足球場${next.field ? ` · ${next.field}` : ''}${next.round ? ` · 場次 ${next.round}` : ''}`;
   const official = next.league ? '<a class="chip-link" href="https://taipei.torneopal.com/taso/joukkue.php?joukkue=175284&amp;turnaus=mfa_0014&amp;sarja=U8" target="_blank" rel="noopener noreferrer">官方最新時間與比分 ↗</a>' : '';
   const status = next.status ? `<span class="chip">${next.status}</span>` : '';
   const jersey = next.jersey?.startsWith('球員：') ? next.jersey : `球衣：${next.jersey || '待通知'}`;
