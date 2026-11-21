@@ -1,10 +1,4 @@
 const matches = [
-  ['09-13','08:40','07:40','LS 紅獅',0,'4','乙B'],
-  ['09-19','13:40','12:40','TAIPEI PLAYONE',0,'30','乙B'],
-  ['09-20','12:50','11:50','樂活龍',0,'50','乙B','紅色'],
-  ['10-18','10:20','09:20','銀河射手俱樂部',0,'69','乙A'],
-  ['11-08','07:50','06:50','新北銀河',0,'135','乙A','穿紅、帶藍'],
-  ['11-21','12:50','11:50','熱血閃電紅',0,null,'乙A'],
   ['10-04','08:00','07:00','MFA U8',1,null,null,'穿藍、帶紅'],
   ['10-25','13:00','12:00','FALCONS UNITED',1,null,null,'球員：紅色／守門員：藍色'],
   ['11-22','17:00','16:00','LION',1],
@@ -16,6 +10,12 @@ const matches = [
   ['2027-02-14',null,null,'對手待公布',1,null,null,null,'預留'],
   ['2027-02-21',null,null,'對手待公布',1,null,null,null,'預留'],
   ['2027-03-07',null,null,'對手待公布',1,null,null,null,'預留']
+  ['09-13','08:40','07:40','LS 紅獅',0,'4','乙B'],
+  ['09-19','13:40','12:40','TAIPEI PLAYONE',0,'30','乙B'],
+  ['09-20','12:50','11:50','樂活龍',0,'50','乙B','紅色'],
+  ['10-18','10:20','09:20','銀河射手俱樂部',0,'69','乙A'],
+  ['11-08','07:50','06:50','新北銀河',0,'135','乙A','穿紅、帶藍'],
+  ['11-21','12:50','11:50','熱血閃電紅',2,null,'乙A'],
 ].map(([date,time,meet,opponent,league,round,field,jersey,status],index) => ({
   date,time,meet,opponent,league,round,field,jersey,status,index,
   kickoff: time ? Date.parse(`${date.length === 5 ? '2026-' : ''}${date}T${time}:00+08:00`) : null
@@ -32,18 +32,23 @@ const victoryScores = {
   '10-04': [3,1],
   '10-25': [13,0]
 };
-function renderNewTaipeiRecord() {
-  const scores = Object.values(newTaipeiScores);
+function renderRecord(scoreMap, summaryId, pointsId, selector, leagueId) {
+  const scores = Object.values(scoreMap);
   const wins = scores.filter(([forGoals,against]) => forGoals > against).length;
   const draws = scores.filter(([forGoals,against]) => forGoals === against).length;
-  const losses = scores.length - wins - draws;
-  document.getElementById('record-summary').textContent = `已賽 ${scores.length} 場 · ${wins} 勝 ${draws} 和 ${losses} 敗`;
-  document.getElementById('record-points').textContent = wins * 3 + draws;
-  document.querySelectorAll('.league:first-child .game').forEach((row,index) => {
+  document.getElementById(summaryId).textContent = `已賽 ${scores.length} 場 · ${wins} 勝 ${draws} 和 ${scores.length-wins-draws} 敗`;
+  document.getElementById(pointsId).textContent = wins * 3 + draws;
+  const leagueMatches = matches.filter(m => m.league === leagueId);
+  document.querySelectorAll(selector).forEach((row,index) => {
     const result = row.querySelector('.result');
-    const score = newTaipeiScores[matches[index].date];
+    const score = scoreMap[leagueMatches[index].date];
     if (result && score) result.textContent = `${score[0]} : ${score[1]}`;
   });
+}
+const winterScores = {};
+function renderNewTaipeiRecords() {
+  renderRecord(newTaipeiScores, 'record-summary', 'record-points', '.league.autumn .game', 0);
+  renderRecord(winterScores, 'winter-summary', 'winter-points', '.league.winter .game', 2);
 }
 function renderVictoryRecord(now) {
   const played = matches.filter(m => m.league === 1 && m.kickoff !== null && m.kickoff <= now);
@@ -78,16 +83,16 @@ function refreshSchedule() {
     return;
   }
   const weekday = new Intl.DateTimeFormat('zh-TW', {timeZone:'Asia/Taipei',weekday:'short'}).format(next.kickoff);
-  const league = next.league ? '2026/27 勝利聯賽 · U8 A 組' : '新北市兒少草地五人制足球聯賽 · U8';
-  const venue = next.league
+  const league = next.league === 1 ? '2026/27 勝利聯賽 · U8 A 組' : `新北市兒少草地五人制 · ${next.league === 2 ? '冬季賽' : '秋季賽'} · U8`;
+  const venue = next.league === 1
     ? '福斯球場'
     : `新莊田徑場人工草皮足球場${next.field ? ` · ${next.field}` : ''}${next.round ? ` · 場次 ${next.round}` : ''}`;
-  const official = next.league ? '<a class="chip-link" href="https://taipei.torneopal.com/taso/joukkue.php?joukkue=175284&amp;turnaus=mfa_0014&amp;sarja=U8" target="_blank" rel="noopener noreferrer">官方最新時間與比分 ↗</a>' : '';
+  const official = next.league === 1 ? '<a class="chip-link" href="https://taipei.torneopal.com/taso/joukkue.php?joukkue=175284&amp;turnaus=mfa_0014&amp;sarja=U8" target="_blank" rel="noopener noreferrer">官方最新時間與比分 ↗</a>' : '';
   const status = next.status ? `<span class="chip">${next.status}</span>` : '';
   const jersey = next.jersey?.startsWith('球員：') ? next.jersey : `球衣：${next.jersey || '待通知'}`;
   panel.innerHTML = `<div class="next-main"><div class="eyebrow">NEXT MATCH · 下一場</div><div class="date">${next.date.replace(/-/g,'/')} <small>${weekday}</small></div><div class="match"><span>BT SPIRIT 風速羊</span><span class="vs">VS</span><span>${next.opponent}</span></div></div><div class="next-side"><small>${league}</small><span class="meet-label">集合時間</span><strong class="meet-time">${next.meet}</strong><span class="kickoff">${next.time} 開賽</span><span class="venue">📍 場地：${venue}</span><div class="chips">${status}<span class="chip">${jersey}</span><span class="chip">台灣時間</span>${official}</div></div>`;
 }
-renderNewTaipeiRecord();
+renderNewTaipeiRecords();
 refreshSchedule();
 setInterval(refreshSchedule, 1000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshSchedule(); });
