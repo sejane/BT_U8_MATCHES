@@ -1,10 +1,9 @@
 const matches = [
   ['10-04','08:00','07:00','MFA U8',1,null,null,'穿藍、帶紅'],
   ['10-25','13:00','12:00','FALCONS UNITED',1,null,null,'球員：紅色／守門員：藍色'],
-  ['11-29','17:00','16:00','LION-U8',1,null,null,null,'由 11/22 改期'],
   ['12-06','09:00','08:00','MFA U7',1,null,null,null,'由 11/08 改期'],
   ['12-13','12:00','11:00','MONSTER 足球俱樂部',1,null,null,null,'由 11/15 改期'],
-  ['2027-01-10',null,null,'對手待公布',1,null,null,null,'預留'],
+  ['2027-01-10',null,null,'LION-U8',1,null,null,null,'由 11/29 改期 · 時間待確認'],
   ['2027-01-17',null,null,'對手待公布',1,null,null,null,'預留'],
   ['2027-01-24',null,null,'對手待公布',1,null,null,null,'預留'],
   ['2027-02-14',null,null,'對手待公布',1,null,null,null,'預留'],
@@ -67,7 +66,7 @@ function renderVictoryRecord(now) {
   document.getElementById('victory-points').textContent = pending ? '—' : wins * 3 + draws;
 }
 function nextMatch(now) {
-  return matches.filter(m => m.kickoff !== null && m.kickoff > now).sort((a,b) => a.kickoff-b.kickoff)[0];
+  return matches.filter(m => m.status !== '預留' && (m.kickoff !== null ? m.kickoff > now : Date.parse(`${m.date}T23:59:59+08:00`) > now)).sort((a,b) => (a.kickoff ?? Date.parse(`${a.date}T00:00:00+08:00`))-(b.kickoff ?? Date.parse(`${b.date}T00:00:00+08:00`)))[0];
 }
 let displayedIndex;
 function refreshSchedule() {
@@ -86,7 +85,8 @@ function refreshSchedule() {
     panel.innerHTML = '<div class="next-main"><div class="eyebrow">NEXT MATCH · 下一場</div><h2>目前沒有後續賽程</h2><p>等待新賽程公布。</p></div>';
     return;
   }
-  const weekday = new Intl.DateTimeFormat('zh-TW', {timeZone:'Asia/Taipei',weekday:'short'}).format(next.kickoff);
+  const matchDate = next.kickoff ?? Date.parse(`${next.date}T00:00:00+08:00`);
+  const weekday = new Intl.DateTimeFormat('zh-TW', {timeZone:'Asia/Taipei',weekday:'short'}).format(matchDate);
   const league = next.league === 1 ? '2026/27 勝利聯賽 · U8 A 組' : `新北市兒少草地五人制 · ${next.league === 2 ? '冬季賽' : '秋季賽'} · U8`;
   const venue = next.league === 1
     ? '福斯球場'
@@ -94,7 +94,7 @@ function refreshSchedule() {
   const official = next.league === 1 ? '<a class="chip-link" href="https://taipei.torneopal.com/taso/joukkue.php?joukkue=175284&amp;turnaus=mfa_0014&amp;sarja=U8" target="_blank" rel="noopener noreferrer">官方最新時間與比分 ↗</a>' : '';
   const status = next.status ? `<span class="chip">${next.status}</span>` : '';
   const jersey = next.jersey?.startsWith('球員：') ? next.jersey : `球衣：${next.jersey || '待通知'}`;
-  panel.innerHTML = `<div class="next-main"><div class="eyebrow">NEXT MATCH · 下一場</div><div class="date">${next.date.replace(/-/g,'/')} <small>${weekday}</small></div><div class="match"><span>BT SPIRIT 風速羊</span><span class="vs">VS</span><span>${next.opponent}</span></div></div><div class="next-side"><small>${league}</small><span class="meet-label">集合時間</span><strong class="meet-time">${next.meet}</strong><span class="kickoff">${next.time} 開賽</span><span class="venue">📍 場地：${venue}</span><div class="chips">${status}<span class="chip">${jersey}</span><span class="chip">台灣時間</span>${official}</div></div>`;
+  panel.innerHTML = `<div class="next-main"><div class="eyebrow">NEXT MATCH · 下一場</div><div class="date">${next.date.replace(/-/g,'/')} <small>${weekday}</small></div><div class="match"><span>BT SPIRIT 風速羊</span><span class="vs">VS</span><span>${next.opponent}</span></div></div><div class="next-side"><small>${league}</small><span class="meet-label">集合時間</span><strong class="meet-time">${next.meet || "待確認"}</strong><span class="kickoff">${next.time ? `${next.time} 開賽` : "開賽時間待確認"}</span><span class="venue">📍 場地：${venue}</span><div class="chips">${status}<span class="chip">${jersey}</span><span class="chip">台灣時間</span>${official}</div></div>`;
 }
 renderNewTaipeiRecords();
 refreshSchedule();
